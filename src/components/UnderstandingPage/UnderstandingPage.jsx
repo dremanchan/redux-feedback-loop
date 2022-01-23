@@ -24,7 +24,24 @@ function UnderstandingPage() {
     };
     
     return (
-        <h1>How well are you understanding the content?</h1>
+        <>
+        <h1>How are you understanding the content today?</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            variant="filled"
+            placeholder="1-5"
+            min="1"
+            max="5"
+            value={understanding}
+            // Changes string to number value on submit
+            onChange={(event) => setUnderstanding(Number(event.target.value))}
+          />
+          <Link to="/support">
+            <button onClick={handleSubmit}>Next</button>
+          </Link>
+        </form>
+      </>
     )
 }
 
