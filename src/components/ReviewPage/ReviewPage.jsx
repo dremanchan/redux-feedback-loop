@@ -17,7 +17,17 @@ function ReviewPage() {
            </Link> 
 
            <Link to="/understanding">
-               <h3>Understanding: {feedback.understanding}</h3>
+               <h3>Understanding: {feedback.understanding} </h3>
+           </Link>
+
+           <Link to="/support">
+               <h3>Support: {feedback.support} </h3>
+           </Link>
+
+           <Link to="/comments">
+               <h3>Comments: {feedback.comments ? 
+               feedback.comments : 'No comments were made.'}
+               </h3>
            </Link>
         
        
