@@ -9,6 +9,15 @@ function ReviewPage() {
   const dispatch = useDispatch();
   const feedback = useSelector((store) => store.feedback);
 
+  const startOver = () => {
+      // clears the feedback reducer
+      dispatch({
+        type: 'CLEAR_FEEDBACK'
+      });
+      // sends the user back to the first page
+      history.push('/')
+  }
+
   const submitFeedback = () => {
     console.log('in submitFeedback', feedback);
 
@@ -18,7 +27,9 @@ function ReviewPage() {
         })
         .catch(err => {
             console.error('POST failed', err);
+            alert('Feedback failed to send')
         });
+    startOver();
   }
 
   return (
@@ -53,6 +64,10 @@ function ReviewPage() {
       <Link to="/comments">
         <button>Change Comments</button>
       </Link>
+
+      <button onClick={submitFeedback}>
+          Submit
+      </button>
     </>
   );
 }
