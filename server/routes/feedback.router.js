@@ -10,9 +10,9 @@ router.post('/', (req, res) => {
 
     const queryText =`
     INSERT INTO "feedback"
-        ("feeling",
-        "understanding",
-        "support"
+        ("feeling", 
+        "understanding", 
+        "support", 
         "comments")
     VALUES
         ($1, $2, $3, $4);
