@@ -9,14 +9,14 @@ function FeelingPage() {
 
   let feelingState;
 
-    // this conditional sets the local input and avoids undefined
-    // it keeps the console logs clear of an error message from changing state
+  // this conditional sets the local input and avoids undefined
+  // it keeps the console logs clear of an error message from changing state
   if (feedback.feeling) {
-      console.log('feeling is', feedback.feeling);
-      feelingState = feedback.feeling;
+    console.log("feeling is", feedback.feeling);
+    feelingState = feedback.feeling;
   } else {
-      console.log('feeling is undefined');
-      feelingState = '';
+    console.log("feeling is undefined");
+    feelingState = "";
   }
 
   // local state
@@ -24,7 +24,6 @@ function FeelingPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault;
-    console.log("in handleSubmit");
 
     // form validation
     if (feeling === "") {
