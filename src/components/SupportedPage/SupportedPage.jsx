@@ -5,18 +5,7 @@ import "./SupportedPage.css";
 
 function SupportedPage() {
   const dispatch = useDispatch();
-  const feedback = useSelector((store) => store.feedback);
   const history = useHistory();
-
-  let supportState;
-
-  if (feedback.support) {
-    console.log("support is", feedback.support);
-    supportState = feedback.support;
-  } else {
-    console.log("support is undefined");
-    supportState = "";
-  }
 
   // local state
   const [support, setSupport] = useState();
@@ -27,10 +16,11 @@ function SupportedPage() {
     // Form Validation
     if (support === "") {
       return alert("Please enter a number (1-5)");
-    } else if (support > 5 || support < 1){
-        return alert('Please enter a number (1-5)');
-    }
-     else {
+    } else if (support > 5 || support < 1) {
+      return alert("Please enter a number (1-5)");
+    } else if (support === undefined) {
+      return alert("Please enter a number (1-5)");
+    } else {
       dispatch({
         type: "SET_SUPPORT_RATING",
         payload: { property: "support", value: support },
@@ -57,9 +47,7 @@ function SupportedPage() {
         <Link to="/understanding">
           <button>Back</button>
         </Link>
-        <button onClick={handleSubmit}>
-            Next
-        </button>
+        <button onClick={handleSubmit}>Next</button>
       </form>
     </>
   );
