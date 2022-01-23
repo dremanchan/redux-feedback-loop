@@ -28,7 +28,7 @@ function CommentPage() {
           placeholder="Write your feedback here"
           value={comments}
           onChange={(event) => setComments(event.target.value)}
-        />
+          />
         <Link to="/support">
           <button>Back</button>
         </Link>

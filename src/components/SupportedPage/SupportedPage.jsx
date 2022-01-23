@@ -35,7 +35,7 @@ function SupportedPage() {
         type: "SET_SUPPORT_RATING",
         payload: { property: "support", value: support },
       });
-
+      // This sends the user to the comments page
       history.push("/comments");
     }
   };
@@ -57,10 +57,9 @@ function SupportedPage() {
         <Link to="/understanding">
           <button>Back</button>
         </Link>
-        {/* This link doesn't work for some reason */}
-        <Link to="comments">
-          <button onClick={handleSubmit}>Next</button>
-        </Link>
+        <button onClick={handleSubmit}>
+            Next
+        </button>
       </form>
     </>
   );
