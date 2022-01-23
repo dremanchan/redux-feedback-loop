@@ -1,5 +1,5 @@
 [ ] - 4 pages
-[ ] - How are you feeling
+[ ✅] - How are you feeling
 [ ] - How Well are you understanding content
 [ ] - How well are you being supported
 

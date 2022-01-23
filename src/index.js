@@ -10,11 +10,11 @@ import { Provider } from 'react-redux';
 const feedback = (state = {}, action) => {
     console.log(state, action);
     switch (action.type) {
-        case 'SET_FEELING_RATING': 
+        case 'SET_FEELING_RATING', 'SET_UNDERSTANDING_RATING': 
             return {
                 ...state,
                 [action.payload.property]: action.payload.value
-            }
+            };
         } return state;
        
     }
