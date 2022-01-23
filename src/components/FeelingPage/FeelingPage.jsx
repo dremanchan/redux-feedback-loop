@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import * as React from "react";
+import ReactDOM from "react-dom";
+import  Button from "@mui/material/Button";
+import TextField from '@mui/material/TextField';
 import "./FeelingPage.css";
 
 function FeelingPage() {
@@ -19,9 +23,8 @@ function FeelingPage() {
     } else if (feeling > 5 || feeling < 1) {
       return alert("Please enter a number (1-5)");
     } else if (feeling === undefined) {
-      return alert("Please enter a number (1-5)")
-    }
-     else {
+      return alert("Please enter a number (1-5)");
+    } else {
       dispatch({
         type: "SET_FEELING_RATING",
         payload: { property: "feeling", value: feeling },
@@ -34,8 +37,9 @@ function FeelingPage() {
     <>
       <h2>How are you feeling today?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="number"
+          id="filled-basic"
           variant="filled"
           placeholder="1-5"
           min="1"
@@ -45,7 +49,7 @@ function FeelingPage() {
           onChange={(event) => setFeeling(Number(event.target.value))}
         />
 
-        <button onClick={handleSubmit}>Next</button>
+        <Button variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );

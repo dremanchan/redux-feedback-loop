@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import  Button from "@mui/material/Button";
 
 function ReviewPage() {
   const history = useHistory();
@@ -40,35 +41,35 @@ function ReviewPage() {
       <h3>
         Feeling: {feedback.feeling}
         <Link to="/">
-          <button>Change Rating</button>
+          <Button size="small" variant="contained" >Change Rating</Button>
         </Link>
       </h3>
 
       <h3>
         Understanding: {feedback.understanding}
         <Link to="/understanding">
-          <button>Change Rating</button>
+          <Button size="small" variant="contained">Change Rating</Button>
         </Link>
       </h3>
 
       <h3>
         Support: {feedback.support}
         <Link to="/support">
-          <button>Change Rating</button>
+          <Button size="small" variant="contained">Change Rating</Button>
         </Link>
       </h3>
 
       <h3>
         Comments:{" "}
-        {feedback.comments ? feedback.comments : "No comments were made."}
-      </h3>
-      <Link to="/comments">
-        <button>Change Comments</button>
+        {feedback.comments ? feedback.comments : "No comments were made"}
+        <Link to="/comments">
+        <Button size="small" variant="contained">Change Comments</Button>
       </Link>
-
-      <button onClick={submitFeedback}>
+      </h3>
+      
+      <Button size="small" variant="contained" onClick={submitFeedback}>
           Submit
-      </button>
+      </Button>
     </>
   );
 }

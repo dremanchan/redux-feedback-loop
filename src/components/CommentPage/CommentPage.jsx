@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./CommentPage.css";
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import  Button from "@mui/material/Button";
 
 function CommentPage() {
   const dispatch = useDispatch();
-  const feedback = useSelector((store) => store.feedback);
 
+  // Set local state
   const [comments, setComments] = useState();
 
   const handleSubmit = (event) => {
@@ -21,19 +24,23 @@ function CommentPage() {
 
   return (
     <>
-      <h1>Any comments you want to leave?</h1>
+      <h2>Would you like to leave a comment?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="text"
+          id="outlined-multiline-flexible"
+          label="Comments optional"
+          multiline
+          maxRows={4}
           placeholder="Write your feedback here"
           value={comments}
           onChange={(event) => setComments(event.target.value)}
           />
         <Link to="/support">
-          <button>Back</button>
+          <Button variant="contained">Back</Button>
         </Link>
         <Link to="/review">
-          <button onClick={handleSubmit}>Next</button>
+          <Button variant ="contained" onClick={handleSubmit}>Next</Button>
         </Link>
       </form>
     </>

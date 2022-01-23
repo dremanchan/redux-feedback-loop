@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./UnderstandingPage.css";
+import TextField from '@mui/material/TextField';
+import  Button from "@mui/material/Button";
 
 function UnderstandingPage() {
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ function UnderstandingPage() {
   const handleSubmit = (event) => {
     event.preventDefault;
 
+    // Form Validation with booleans to check for wrong inputs
     if (understanding === "") {
       return alert('Please enter a number between 1 and 5');
     } else if (understanding > 5 || understanding < 1){
@@ -33,9 +36,10 @@ function UnderstandingPage() {
     <>
       <h2>How well are you understanding the content today?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="number"
-          // variant="filled"
+          variant="filled"
+          id="filled-basic"
           placeholder="1-5"
           min="1"
           max="5"
@@ -45,9 +49,9 @@ function UnderstandingPage() {
           onChange={(event) => setUnderstanding(Number(event.target.value))}
         />
         <Link to="/">
-          <button>Back</button>
+          <Button variant="contained">Back</Button>
         </Link>
-          <button onClick={handleSubmit}>Next</button>
+          <Button variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );

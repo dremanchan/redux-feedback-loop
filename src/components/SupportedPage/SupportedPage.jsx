@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./SupportedPage.css";
+import TextField from '@mui/material/TextField';
+import  Button from "@mui/material/Button";
 
 function SupportedPage() {
   const dispatch = useDispatch();
@@ -34,9 +36,10 @@ function SupportedPage() {
     <>
       <h2>How well do you feel supported?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="number"
           variant="filled"
+
           placeholder="1-5"
           min="1"
           max="5"
@@ -45,9 +48,9 @@ function SupportedPage() {
           onChange={(event) => setSupport(Number(event.target.value))}
         />
         <Link to="/understanding">
-          <button>Back</button>
+          <Button variant="contained">Back</Button>
         </Link>
-        <button onClick={handleSubmit}>Next</button>
+        <Button variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );
