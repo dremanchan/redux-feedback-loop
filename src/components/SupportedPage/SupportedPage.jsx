@@ -5,7 +5,7 @@ import './SupportedPage.css';
 
 function SupportedPage() {
     return (
-        <h1>How well are you being supported?</h1>
+        <h1>How well do you feel supported?</h1>
     )
 }
 
