@@ -14,6 +14,7 @@ import UnderstandingPage from "../UnderstandingPage/UnderstandingPage";
 import SupportedPage from "../SupportedPage/SupportedPage";
 import CommentPage from "../CommentPage/CommentPage";
 import ReviewPage from "../ReviewPage/ReviewPage";
+import SuccessPage from "../SuccessPage/SuccessPage";
 
 function App() {
   return (
@@ -43,6 +44,11 @@ function App() {
         <Route path="/review" exact>
           <ReviewPage />
         </Route>
+
+        <Route path="/success" exact>
+          <SuccessPage />
+        </Route>
+
       </Router>
     </div>
   );
