@@ -13,8 +13,8 @@ function CommentPage() {
     event.preventDefault;
 
     dispatch({
-      type: "SET_COMMENTS",
-      payload: { property: "comments", value: comments },
+      type: 'SET_COMMENTS',
+      payload: { property: 'comments', value: comments },
     });
 
   };
