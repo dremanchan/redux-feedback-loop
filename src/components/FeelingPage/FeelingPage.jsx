@@ -6,6 +6,7 @@ import "./FeelingPage.css";
 function FeelingPage() {
   const dispatch = useDispatch();
   const feedback = useSelector((store) => store.feedback);
+  const history = useHistory();
 
   let feelingState;
 
@@ -25,20 +26,23 @@ function FeelingPage() {
   const handleSubmit = (event) => {
     event.preventDefault;
 
-    // form validation
+    // Form validation
     if (feeling === "") {
       return alert("Please select a number");
+    } else if (feeling > 5 || feeling < 1) {
+      return alert("Please enter a number (1-5)");
     } else {
       dispatch({
         type: "SET_FEELING_RATING",
         payload: { property: "feeling", value: feeling },
       });
+      history.push("/understanding");
     }
   };
 
   return (
     <>
-      <h1>How are you feeling today?</h1>
+      <h2>How are you feeling today?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"
@@ -50,9 +54,8 @@ function FeelingPage() {
           // Changes string to number value on submit
           onChange={(event) => setFeeling(Number(event.target.value))}
         />
-        <Link to="/understanding">
-          <button onClick={handleSubmit}>Next</button>
-        </Link>
+
+        <button onClick={handleSubmit}>Next</button>
       </form>
     </>
   );

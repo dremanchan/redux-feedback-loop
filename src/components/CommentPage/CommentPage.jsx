@@ -16,6 +16,7 @@ function CommentPage() {
       type: "SET_COMMENTS",
       payload: { property: "comments", value: comments },
     });
+
   };
 
   return (
@@ -27,11 +28,11 @@ function CommentPage() {
           placeholder="Write your feedback here"
           value={comments}
           onChange={(event) => setComments(event.target.value)}
-        />
+          />
         <Link to="/support">
           <button>Back</button>
         </Link>
-        <Link to="/ReviewPage">
+        <Link to="/review">
           <button onClick={handleSubmit}>Next</button>
         </Link>
       </form>

@@ -24,6 +24,9 @@ function UnderstandingPage() {
 
     if (understanding === "") {
       return alert("Please select a number");
+    }
+    else if (understanding > 5 || understanding < 1){
+        return alert('Please enter a number (1-5)');
     } else {
       dispatch({
         type: "SET_UNDERSTANDING_RATING",
@@ -34,7 +37,7 @@ function UnderstandingPage() {
 
   return (
     <>
-      <h1>How well are you understanding the content today?</h1>
+      <h2>How well are you understanding the content today?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"
