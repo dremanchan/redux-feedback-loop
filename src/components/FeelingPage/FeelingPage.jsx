@@ -38,7 +38,7 @@ function FeelingPage() {
 
   return (
     <>
-      <h1>How are you feeling today?</h1>
+      <h2>How are you feeling today?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"

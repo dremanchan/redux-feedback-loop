@@ -16,6 +16,7 @@ function CommentPage() {
       type: "SET_COMMENTS",
       payload: { property: "comments", value: comments },
     });
+
   };
 
   return (
@@ -31,7 +32,7 @@ function CommentPage() {
         <Link to="/support">
           <button>Back</button>
         </Link>
-        <Link to="/ReviewPage">
+        <Link to="/review">
           <button onClick={handleSubmit}>Next</button>
         </Link>
       </form>

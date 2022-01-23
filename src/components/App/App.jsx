@@ -36,7 +36,7 @@ function App() {
           <SupportedPage />
         </Route>
 
-        <Route path="/comment" exact>
+        <Route path="/comments" exact>
           <CommentPage />
         </Route>
 

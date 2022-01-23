@@ -1,44 +1,46 @@
-import { useState } from 'react'
-import { Link , useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import './SupportedPage.css';
+import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import "./SupportedPage.css";
 
 function SupportedPage() {
-    const dispatch = useDispatch();
-    const feedback = useSelector((store) => store.feedback);
+  const dispatch = useDispatch();
+  const feedback = useSelector((store) => store.feedback);
+  const history = useHistory();
 
-    let supportState;
+  let supportState;
 
-    if (feedback.support) {
-        console.log("feeling is", feedback.support);
-        supportState = feedback.support;
-      } else {
-        console.log("feeling is undefined");
-        supportState = "";
-      }
+  if (feedback.support) {
+    console.log("support is", feedback.support);
+    supportState = feedback.support;
+  } else {
+    console.log("support is undefined");
+    supportState = "";
+  }
 
-    
-    // local state
-    const [support, setSupport] = useState(supportState);
+  // local state
+  const [support, setSupport] = useState();
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-        // Form Validation
-        if (support === "") {
-            return alert('Please select a number');
-        } else {
-            dispatch({
-                type: "SET_SUPPORT_RATING",
-                payload: { property: "support", value: support },
-            });
-        }
-    }    
+    // Form Validation
+    if (support === "") {
+      return alert("Please select a number");
+    } else {
+      dispatch({
+        type: "SET_SUPPORT_RATING",
+        payload: { property: "support", value: support },
+      });
 
-    return (
-        <>
-        <h1>How well do you feel supported?</h1>
-        <form onSubmit={handleSubmit}>
+      history.push('/comments');
+    }
+  };
+
+  return (
+    <>
+      <h2>How well do you feel supported?</h2>
+      <form onSubmit={handleSubmit}>
         <input
           type="number"
           variant="filled"
@@ -49,9 +51,16 @@ function SupportedPage() {
           // Changes string to number value on submit
           onChange={(event) => setSupport(Number(event.target.value))}
         />
-        </form>
-        </>
-    )
+        <Link to="/understanding">
+          <button>Back</button>
+        </Link>
+        {/* This link doesn't work for some reason */}
+        <Link to="comments">
+            <button onClick={handleSubmit}>Next</button>
+        </Link>
+    </form>
+    </>
+  );
 }
 
 export default SupportedPage;

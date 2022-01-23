@@ -34,7 +34,7 @@ function UnderstandingPage() {
 
   return (
     <>
-      <h1>How well are you understanding the content today?</h1>
+      <h2>How well are you understanding the content today?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"

@@ -10,15 +10,31 @@ import { Provider } from "react-redux";
 const feedback = (state = {}, action) => {
   console.log(state, action);
   switch (action.type) {
-    case ("SET_FEELING_RATING",
-    "SET_UNDERSTANDING_RATING",
-    "SET_SUPPORT_RATING",
-    "SET_COMMENTS"):
+    case ("SET_FEELING_RATING"):
       return {
         ...state,
         [action.payload.property]: action.payload.value,
       };
-  }
+  } switch (action.type) {
+      case ("SET_UNDERSTANDING_RATING"):
+          return {
+              ...state,
+              [action.payload.property]: action.payload.value
+          }
+    } switch (action.type) {
+        case ("SET_SUPPORT_RATING"):
+            return {
+            ...state,
+            [action.payload.property]: action.payload.value
+            }
+    } switch (action.type) {
+        case ("SET_COMMENTS"):
+            return {
+            ...state,
+            [action.payload.property]: action.payload.value    
+            }
+    }
+    
   return state;
 };
 
