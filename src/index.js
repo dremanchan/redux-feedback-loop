@@ -12,7 +12,7 @@ const feedback = (state = {}, action) => {
   switch (action.type) {
     case ("SET_FEELING_RATING",
     "SET_UNDERSTANDING_RATING",
-    "SET_SUPPORTED_RATING",
+    "SET_SUPPORT_RATING",
     "SET_COMMENTS"):
       return {
         ...state,

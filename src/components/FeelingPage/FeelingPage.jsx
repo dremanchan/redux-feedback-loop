@@ -25,7 +25,7 @@ function FeelingPage() {
   const handleSubmit = (event) => {
     event.preventDefault;
 
-    // form validation
+    // Form validation
     if (feeling === "") {
       return alert("Please select a number");
     } else {
