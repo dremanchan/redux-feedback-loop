@@ -15,7 +15,7 @@ function ReviewPage() {
         type: 'CLEAR_FEEDBACK'
       });
       // sends the user back to the first page
-      history.push('/')
+      history.push('/success')
   }
 
   // Posts to the server and database
