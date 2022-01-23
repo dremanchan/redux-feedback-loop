@@ -18,6 +18,7 @@ function ReviewPage() {
       history.push('/')
   }
 
+  // Posts to the server and database
   const submitFeedback = () => {
     console.log('in submitFeedback', feedback);
 

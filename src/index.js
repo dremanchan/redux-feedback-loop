@@ -7,6 +7,7 @@ import logger from "redux-logger";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
+// This is the reducer that stores all of the feedback
 const feedback = (state = {}, action) => {
   console.log(state, action);
   switch (action.type) {
@@ -33,6 +34,9 @@ const feedback = (state = {}, action) => {
             ...state,
             [action.payload.property]: action.payload.value    
             }
+    } switch (action.type) {
+        case ('CLEAR_FEEDBACK'):
+            return {};
     }
     
   return state;

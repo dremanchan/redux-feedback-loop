@@ -42,7 +42,7 @@ function UnderstandingPage() {
         <input
           type="number"
           variant="filled"
-          placeholder="1"
+          placeholder="1-5"
           min="1"
           max="5"
           value={understanding}
