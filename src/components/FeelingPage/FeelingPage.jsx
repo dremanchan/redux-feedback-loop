@@ -28,7 +28,11 @@ function FeelingPage() {
     // Form validation
     if (feeling === "") {
       return alert("Please select a number");
-    } else {
+    }
+    else if (support > 5 || support < 1){
+        return alert('Please enter a number (1-5)');
+    }
+     else {
       dispatch({
         type: "SET_FEELING_RATING",
         payload: { property: "feeling", value: feeling },

@@ -26,14 +26,17 @@ function SupportedPage() {
 
     // Form Validation
     if (support === "") {
-      return alert("Please select a number");
-    } else {
+      return alert("Please enter a number (1-5)");
+    } else if (support > 5 || support < 1){
+        return alert('Please enter a number (1-5)');
+    }
+     else {
       dispatch({
         type: "SET_SUPPORT_RATING",
         payload: { property: "support", value: support },
       });
 
-      history.push('/comments');
+      history.push("/comments");
     }
   };
 
@@ -56,9 +59,9 @@ function SupportedPage() {
         </Link>
         {/* This link doesn't work for some reason */}
         <Link to="comments">
-            <button onClick={handleSubmit}>Next</button>
+          <button onClick={handleSubmit}>Next</button>
         </Link>
-    </form>
+      </form>
     </>
   );
 }
