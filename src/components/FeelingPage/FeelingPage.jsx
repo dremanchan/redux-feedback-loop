@@ -5,9 +5,10 @@ import "./FeelingPage.css";
 
 function FeelingPage() {
   const dispatch = useDispatch();
+  const feedback = useSelector((store) => store.feedback);
 
   // local state
-  const [feeling, setFeeling] = useState[""];
+  const [feeling, setFeeling] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault;
@@ -36,14 +37,11 @@ function FeelingPage() {
           max="5"
           value={feeling}
           // Changes string to number value on submit
-          onchange={(event) => setFeeling(Number(event.target.value))}
+          onChange={(event) => setFeeling(Number(event.target.value))}
         />
         <Link to="/understanding">
-            <button onClick={handleSubmit}>
-                Next
-            </button>
+          <button onClick={handleSubmit}>Next</button>
         </Link>
-        
       </form>
     </>
   );
