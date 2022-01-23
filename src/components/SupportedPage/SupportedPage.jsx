@@ -2,21 +2,12 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./SupportedPage.css";
+import TextField from '@mui/material/TextField';
+import  Button from "@mui/material/Button";
 
 function SupportedPage() {
   const dispatch = useDispatch();
-  const feedback = useSelector((store) => store.feedback);
   const history = useHistory();
-
-  let supportState;
-
-  if (feedback.support) {
-    console.log("support is", feedback.support);
-    supportState = feedback.support;
-  } else {
-    console.log("support is undefined");
-    supportState = "";
-  }
 
   // local state
   const [support, setSupport] = useState();
@@ -27,10 +18,11 @@ function SupportedPage() {
     // Form Validation
     if (support === "") {
       return alert("Please enter a number (1-5)");
-    } else if (support > 5 || support < 1){
-        return alert('Please enter a number (1-5)');
-    }
-     else {
+    } else if (support > 5 || support < 1) {
+      return alert("Please enter a number (1-5)");
+    } else if (support === undefined) {
+      return alert("Please enter a number (1-5)");
+    } else {
       dispatch({
         type: "SET_SUPPORT_RATING",
         payload: { property: "support", value: support },
@@ -44,9 +36,10 @@ function SupportedPage() {
     <>
       <h2>How well do you feel supported?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="number"
           variant="filled"
+
           placeholder="1-5"
           min="1"
           max="5"
@@ -55,11 +48,9 @@ function SupportedPage() {
           onChange={(event) => setSupport(Number(event.target.value))}
         />
         <Link to="/understanding">
-          <button>Back</button>
+          <Button variant="contained">Back</Button>
         </Link>
-        <button onClick={handleSubmit}>
-            Next
-        </button>
+        <Button variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );
