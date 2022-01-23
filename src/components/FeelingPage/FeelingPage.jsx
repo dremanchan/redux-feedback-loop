@@ -7,8 +7,20 @@ function FeelingPage() {
   const dispatch = useDispatch();
   const feedback = useSelector((store) => store.feedback);
 
+  let feelingState;
+
+    // this conditional sets the local input and avoids undefined
+    // it keeps the console logs clear of an error message from changing state
+  if (feedback.feeling) {
+      console.log('feeling is', feedback.feeling);
+      feelingState = feedback.feeling;
+  } else {
+      console.log('feeling is undefined');
+      feelingState = '';
+  }
+
   // local state
-  const [feeling, setFeeling] = useState();
+  const [feeling, setFeeling] = useState(feelingState);
 
   const handleSubmit = (event) => {
     event.preventDefault;
