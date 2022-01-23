@@ -8,6 +8,19 @@ function ReviewPage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const feedback = useSelector((store) => store.feedback);
+
+  const submitFeedback = () => {
+    console.log('in submitFeedback', feedback);
+
+    axios.post('/feedback', feedback)
+        .then(res => {
+            console.log('POST successful', res);
+        })
+        .catch(err => {
+            console.error('POST failed', err);
+        });
+  }
+
   return (
     <>
       <h2> Review Your Feedback </h2>
